@@ -17,3 +17,19 @@ while(numeriGenerati.length < 5){
 
 const numeriGeneratiStamp = document.getElementById('numeriGenerati');
 numeriGeneratiStamp.innerHTML = numeriGenerati.join(' - ')
+
+function confrontaNumeri(numeriUtente){
+    
+}
+
+setTimeout(()=>{numeriGeneratiStamp.innerHTML = '';},2900)
+const timer = setTimeout(()=>{
+    const numeriUtente = [];
+    while(numeriUtente.length < 5){
+        const numeri = parseInt(prompt('inserisci i numeri uno per volta')); //parseInt converte le stringe in valori numerici
+        if(!numeriUtente.includes(numeri)){
+            numeriUtente.push(numeri)
+        }
+        confrontaNumeri(numeriUtente);
+    }
+},3000);
