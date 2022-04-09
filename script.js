@@ -19,7 +19,25 @@ const numeriGeneratiStamp = document.getElementById('numeriGenerati');
 numeriGeneratiStamp.innerHTML = numeriGenerati.join(' - ')
 
 function confrontaNumeri(numeriUtente){
-    
+    console.log(numeriUtente)
+    const numeriEsatti = [];
+    for(let i = 0; i <= numeriUtente.length; i++){
+        let numeri = numeriUtente[i];
+        if(numeriGenerati.includes(numeri)){
+            numeriEsatti.push(numeri);
+        }
+        
+    }
+    if(numeriGenerati.length === numeriEsatti.length){
+        alert('hai vinto')
+    } else { 
+        const numeriUtenteElm = document.getElementById('numeriUtente');
+        const numeriEsattiElm = document.getElementById('numeriEsatti');
+        numeriGeneratiStamp.innerHTML = `Numeri iniziali: ${numeriGenerati.join(' - ')}`;
+        numeriUtenteElm.innerHTML = `Numeri inzeriti da te: ${numeriUtente.join(' - ')}`;
+        numeriEsattiElm.innerHTML = `hai perso ma hai indovinato questi numeri: ${numeriEsatti.join(' - ')}` ;
+    }
+
 }
 
 setTimeout(()=>{numeriGeneratiStamp.innerHTML = '';},2900)
@@ -30,6 +48,7 @@ const timer = setTimeout(()=>{
         if(!numeriUtente.includes(numeri)){
             numeriUtente.push(numeri)
         }
-        confrontaNumeri(numeriUtente);
+        
     }
+    confrontaNumeri(numeriUtente);
 },3000);
